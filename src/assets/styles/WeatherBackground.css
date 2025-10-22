@@ -1,0 +1,309 @@
+/* ===== WEATHER BACKGROUND BASE ===== */
+.weather-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* ===== RAIN EFFECT ===== */
+.rain-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.raindrop {
+  position: absolute;
+  width: 2px;
+  height: 50px;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.6));
+  animation: rain-fall linear infinite;
+}
+
+@keyframes rain-fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* ===== SNOW EFFECT ===== */
+.snow-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.snowflake {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.8);
+  animation: snow-fall linear infinite;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes snow-fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0.8;
+  }
+}
+
+/* ===== THUNDER/LIGHTNING EFFECT ===== */
+.thunder-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.lightning {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0);
+  animation: lightning 4s infinite;
+}
+
+@keyframes lightning {
+  0%, 10%, 20%, 100% {
+    background: rgba(255, 255, 255, 0);
+  }
+  5%, 15% {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 100px rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* ===== CLEAR/SUNNY EFFECT ===== */
+.clear-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.sun {
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #FFD700 0%, #FFA500 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 60px rgba(255, 215, 0, 0.8),
+              0 0 100px rgba(255, 165, 0, 0.6);
+  animation: sun-pulse 3s ease-in-out infinite;
+}
+
+@keyframes sun-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 60px rgba(255, 215, 0, 0.8),
+                0 0 100px rgba(255, 165, 0, 0.6);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 80px rgba(255, 215, 0, 1),
+                0 0 120px rgba(255, 165, 0, 0.8);
+  }
+}
+
+.sun-ray {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: sun-rays 3s ease-in-out infinite;
+}
+
+@keyframes sun-rays {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.5) rotate(180deg);
+    opacity: 0.3;
+  }
+}
+
+/* ===== CLOUDY EFFECT ===== */
+.cloudy-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+}
+
+.cloud-1 {
+  width: 200px;
+  height: 60px;
+  top: 20%;
+  animation: cloud-move-1 30s linear infinite;
+}
+
+.cloud-1::before {
+  width: 100px;
+  height: 60px;
+  top: -30px;
+  left: 30px;
+}
+
+.cloud-1::after {
+  width: 120px;
+  height: 60px;
+  top: -20px;
+  right: 30px;
+}
+
+.cloud-2 {
+  width: 250px;
+  height: 70px;
+  top: 40%;
+  animation: cloud-move-2 40s linear infinite;
+}
+
+.cloud-2::before {
+  width: 120px;
+  height: 70px;
+  top: -35px;
+  left: 40px;
+}
+
+.cloud-2::after {
+  width: 140px;
+  height: 70px;
+  top: -25px;
+  right: 40px;
+}
+
+.cloud-3 {
+  width: 180px;
+  height: 50px;
+  top: 60%;
+  animation: cloud-move-3 35s linear infinite;
+}
+
+.cloud-3::before {
+  width: 90px;
+  height: 50px;
+  top: -25px;
+  left: 25px;
+}
+
+.cloud-3::after {
+  width: 100px;
+  height: 50px;
+  top: -20px;
+  right: 25px;
+}
+
+@keyframes cloud-move-1 {
+  from {
+    left: -300px;
+  }
+  to {
+    left: 110%;
+  }
+}
+
+@keyframes cloud-move-2 {
+  from {
+    left: -350px;
+  }
+  to {
+    left: 110%;
+  }
+}
+
+@keyframes cloud-move-3 {
+  from {
+    left: -280px;
+  }
+  to {
+    left: 110%;
+  }
+}
+
+/* ===== MIST/FOG EFFECT ===== */
+.mist-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.fog {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to bottom, 
+    rgba(200, 200, 200, 0) 0%,
+    rgba(200, 200, 200, 0.3) 50%,
+    rgba(200, 200, 200, 0) 100%);
+  backdrop-filter: blur(5px);
+}
+
+.fog-1 {
+  top: 20%;
+  animation: fog-move 20s ease-in-out infinite;
+}
+
+.fog-2 {
+  top: 40%;
+  animation: fog-move 25s ease-in-out infinite reverse;
+}
+
+.fog-3 {
+  top: 60%;
+  animation: fog-move 30s ease-in-out infinite;
+}
+
+@keyframes fog-move {
+  0%, 100% {
+    transform: translateX(-10%);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateX(10%);
+    opacity: 0.5;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .sun {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .cloud-1, .cloud-2, .cloud-3 {
+    width: 150px;
+    height: 50px;
+  }
+}
